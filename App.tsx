@@ -34,7 +34,8 @@ const App: React.FC = () => {
     const isDeleting = useRef(false);
 
     useEffect(() => {
-        let timeoutId: NodeJS.Timeout;
+        // Fix: Use ReturnType<typeof setTimeout> for the timeout ID type to ensure compatibility with browser environments.
+        let timeoutId: ReturnType<typeof setTimeout>;
 
         const type = () => {
             const currentPrompt = placeholderPrompts[promptIndex.current];
